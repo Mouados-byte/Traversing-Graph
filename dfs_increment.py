@@ -1,6 +1,6 @@
 from collections import defaultdict
-# import networkx as nx
-# import matplotlib.pyplot as plt
+import networkx as nx
+import matplotlib.pyplot as plt
 
 class Graph:
     def __init__(self):
@@ -14,13 +14,13 @@ class Graph:
             print(f'{source}: {targets}')
         self.draw_graph()
 
-    # def draw_graph(self):
-    #     G = nx.DiGraph()
-    #     for source, targets in self.graph.items():
-    #         for target in targets:
-    #             G.add_edge(source, target)
-    #     nx.draw(G, with_labels=True)
-    #     plt.show()
+    def draw_graph(self):
+        G = nx.DiGraph()
+        for source, targets in self.graph.items():
+            for target in targets:
+                G.add_edge(source, target)
+        nx.draw_kamada_kawai(G, with_labels=True)
+        plt.show()
         
     def dfs(self, start, order='increment'):
         visited = set()
@@ -72,4 +72,5 @@ graph.addEdge(19, 1)
 graph.addEdge(20, 21)
 graph.dfs(1)
 graph.dfs(1, "decrement")
+graph.draw_graph()
 
