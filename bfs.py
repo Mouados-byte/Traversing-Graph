@@ -22,22 +22,22 @@ class bfsGraph(Graph):
         Returns:
             None
         """
-        queue = deque() # Créez une file d'attente pour le parcours en largeur d'abord
-        all_nodes = list(self.graph.keys()) + [item for sublist in self.graph.values() for item in sublist] # Obtenez tous les nœuds du graphe
-        visited = [False] * (max(all_nodes) + 1) # Créez une liste pour suivre les nœuds visités
+        if start not in self.graph: # Si le nœud de départ n'est pas dans le graphe
+            print("Noeud non trouvé dans le graphe") # Affichez un message d'erreur
+            return
         
-        queue.append(start) # Ajoutez le nœud de départ à la file d'attente
-        visited[start] = True # Marquez le nœud de départ comme visité
+        queue = deque([start]) # Créez une file d'attente pour le parcours en largeur d'abord
+        visited = set([start]) # Créez un ensemble pour garder une trace des nœuds visités
         
         while queue:
             start = queue.popleft() # Obtenez le premier nœud de la file d'attente
             print(start, end=" ") # Affichez le nœud
             
             neighbors = sorted(self.graph[start], reverse=(order == 'decrement')) # Obtenez les voisins du nœud
-            for i in neighbors:
-            if not visited[i]: # Si le voisin n'a pas été visité
-                queue.append(i) # Ajoutez le voisin à la file d'attente, afin qu'il puisse être visité ultérieurement
-                visited[i] = True # Marquez le voisin comme visité
+            for next_node in neighbors:
+            if not visited[next_node]: # Si le voisin n'a pas été visité
+                queue.append(next_node) # Ajoutez le voisin à la file d'attente, afin qu'il puisse être visité ultérieurement
+                visited.add(next_node) # Marquez le voisin comme visité
         print() # Affichez une nouvelle ligne
         
 graph = bfsGraph()
@@ -76,7 +76,7 @@ edges = [
     [20, 21]
 ]
 for edge in edges:
-    graph.addEdge(edge[0], edge[1]) # Add the edges to the graph
+    graph.add_edge(edge[0], edge[1]) # Ajoutez les arêtes au graphe
     
-graph.traverse(1) # Perform BFS traversal starting from node 1
-graph.traverse(1, "decrement") # Perform BFS traversal starting from node 1 in reverse order
+graph.traverse(1) 
+graph.traverse(1, "decrement") 
