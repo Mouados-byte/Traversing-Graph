@@ -2,18 +2,19 @@ from graph import Graph
 
 class dfsGraph(Graph):
     def traverse(self, start, order='increment'):
-        visited = set()
+        visited = set() # Create a set to keep track of visited nodes
         
-        self.dfs_recursive(start, visited, order)
+        self.dfs_recursive(start, visited, order) # Perform DFS traversal recursively
         print()
         
     def dfs_recursive(self, curr_edge, visited, order='increment'):
-        visited.add(curr_edge)
+        visited.add(curr_edge) # Mark the current node as visited
         print(curr_edge, end=" ")
-        neighbors = sorted(self.graph[curr_edge], reverse=(order == 'decrement'))
+        neighbors = sorted(self.graph[curr_edge], reverse=(order == 'decrement')) # Get the neighbors of the current node
         for edge in neighbors:
-            if edge not in visited:
-                self.dfs_recursive(edge, visited, order)
+            if edge not in visited: # If the neighbor has not been visited
+                self.dfs_recursive(edge, visited, order) # Recursively visit the neighbors of the current node
+            # this is a backtracking step
         
 
 graph = dfsGraph()
@@ -56,4 +57,3 @@ for edge in edges:
 
 graph.traverse(1)
 graph.traverse(1, "decrement")
-
