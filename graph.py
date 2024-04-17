@@ -1,6 +1,6 @@
 from collections import defaultdict, deque
-import networkx as nx
-import matplotlib.pyplot as plt
+# import networkx as nx
+# import matplotlib.pyplot as plt
 
 class Graph:
     def __init__(self, graph=None):
@@ -10,6 +10,8 @@ class Graph:
     
     def add_edge(self, source, direction):
         self.graph[source].append(direction) # Ajouter une arête du nœud source à la direction
+        self.graph[direction] = self.graph.get(direction, []) # Ajouter la direction au graphe
+        sorted(self.graph[source]) # Triez les voisins du nœud source
         
     
     def draw_graph(self):
