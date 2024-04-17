@@ -2,18 +2,34 @@ from graph import Graph
 
 class dfsGraph(Graph):
     def traverse(self, start, order='increment'):
-        visited = set()
+        """
+            Initie une recherche en profondeur à partir d'un nœud donné.
+
+            Args:
+                start (int): Le nœud de départ pour la traversée DFS.
+                order (str): L'ordre de traversée, 'increment' pour croissant, 'decrement' pour décroissant.
+        """
+        visited = set() # Crée un ensemble pour garder une trace des nœuds visités
         
-        self.dfs_recursive(start, visited, order)
+        self.dfs_recursive(start, visited, order) # Effectue une traversée DFS de manière récursive
         print()
         
     def dfs_recursive(self, curr_edge, visited, order='increment'):
-        visited.add(curr_edge)
-        print(curr_edge, end=" ")
-        neighbors = sorted(self.graph[curr_edge], reverse=(order == 'decrement'))
-        for edge in neighbors:
-            if edge not in visited:
-                self.dfs_recursive(edge, visited, order)
+        """
+            Visite récursivement les nœuds de manière parcours en profondeur.
+
+            Args:
+            node (int): Le nœud actuel à visiter.
+            visited (set): L'ensemble des nœuds déjà visités.
+            order (str): L'ordre de parcours, affecte le tri des voisins.
+        """
+        if node not in visited: # Si le nœud n'a pas été visité
+            visited.add(node) # Marquez le nœud comme visité
+            print(node, end=" ") # Affichez le nœud
+
+            neighbors = sorted(self.graph[node], reverse=(order == 'decrement')) # Obtenez les voisins du nœud
+            for next_node in neighbors: # Pour chaque voisin du nœud
+                self.dfs_recursive(next_node, visited, order) # Visitez le voisin de manière récursive
         
 
 graph = dfsGraph()
@@ -52,8 +68,7 @@ edges = [
     [20, 21]
 ]
 for edge in edges:
-    graph.addEdge(edge[0], edge[1])
+    graph.add_edge(edge[0], edge[1])
 
 graph.traverse(1)
-graph.traverse(1, "decrement")
-
+graph.traverse(1, "decrement") 
