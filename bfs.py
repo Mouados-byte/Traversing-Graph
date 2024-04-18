@@ -126,10 +126,10 @@ edges = [
   [10, 9],
 ]
 
-for edge in edges:
-    graph.add_edge(edge[0], edge[1])
+# for edge in edges:
+#     graph.add_edge(edge[0], edge[1])
 
-print("Traverer le graphe en ordre croissant:")
-graph.traverse(8)
-print("Traverer le graphe en ordre decroissant:")
-graph.traverse(8, "decrement") 
+# print("Traverer le graphe en ordre croissant:")
+# graph.traverse(8)
+# print("Traverer le graphe en ordre decroissant:")
+# graph.traverse(8, "decrement") 

@@ -76,16 +76,16 @@ graph = dfsGraph()
 #     [20, 21]
 # ]
 
-# edges = [
-#   [1, 2],
-#   [1, 3],
-#   [1, 4],
-#   [3, 5],
-#   [3, 2],
-#   [4, 5],
-#   [5, 6],
-#   [7, 8],
-# ]
+edges = [
+  [1, 2],
+  [1, 3],
+  [1, 4],
+  [3, 5],
+  [3, 2],
+  [4, 5],
+  [5, 6],
+  [7, 8],
+]
 
 # edges = [
 #   [1, 2],
@@ -103,31 +103,32 @@ graph = dfsGraph()
 #   [8, 6],
 # ]
 
-edges = [
-  [1, 3],
-  [2, 4],
-  [2, 8],
-  [3, 5],
-  [4, 5],
-  [4, 8],
-  [5, 8],
-  [6, 4],
-  [6, 5],
-  [7, 1],
-  [7, 2],
-  [7, 3],
-  [7, 4],
-  [7, 6],
-  [8, 10],
-  [9, 7],
-  [10, 2],
-  [10, 9],
-]
+# edges = [
+#   [1, 3],
+#   [2, 4],
+#   [2, 8],
+#   [3, 5],
+#   [4, 5],
+#   [4, 8],
+#   [5, 8],
+#   [6, 4],
+#   [6, 5],
+#   [7, 1],
+#   [7, 2],
+#   [7, 3],
+#   [7, 4],
+#   [7, 6],
+#   [8, 10],
+#   [9, 7],
+#   [10, 2],
+#   [10, 9],
+# ]
 
-for edge in edges:
-    graph.add_edge(edge[0], edge[1])
+# for edge in edges:
+#     graph.add_edge(edge[0], edge[1])
 
-print("Traverer le graphe en ordre croissant:")
-graph.traverse(8)
-print("Traverer le graphe en ordre decroissant:")
-graph.traverse(8, "decrement") 
+# starting_point = 1
+# print("Traverer le graphe en ordre croissant:")
+# graph.traverse(1)
+# print("Traverer le graphe en ordre decroissant:")
+# graph.traverse(1, "decrement") 
